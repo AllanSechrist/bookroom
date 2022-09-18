@@ -20,17 +20,17 @@ class RoomTests(TestCase):
             publisher="test publisher",
             author="test author",
             isbn="1234567890123",
-            owner=cls.user,
+            user=cls.user,
         )
 
         cls.room = Room.objects.create(
             name="test room",
             subtitle="My top 10 tests!",
-            owner=cls.user,
+            user=cls.user,
         )
 
         cls.room.books.add(cls.book)
 
     def test_room_model(self):
-        self.assertEqual(self.room.owner.username, "testuser")
-        self.assertEqual(self.book.owner.username, "testuser")
+        self.assertEqual(self.room.user.username, "testuser")
+        self.assertEqual(self.book.user.username, "testuser")
