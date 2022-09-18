@@ -4,11 +4,11 @@ from .models import Book
 from .serializers import BookSerializer
 
 
-class BookListView(generics.ListAPIView):
-    queryset = Book.objects.all()
+class BookListView(generics.ListCreateAPIView):
+    queryset = Book.objects.all()  # Change to user only books in future
     serializer_class = BookSerializer
 
 
-class BookDetail(generics.RetrieveAPIView):
-    queryset = Book.objects.all()
+class BookDetail(generics.RetrieveUpdateDestoryAPIView):
+    queryset = Book.objects.all()  # Change to user only books in future
     serializer_class = BookSerializer

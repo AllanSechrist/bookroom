@@ -13,5 +13,6 @@ class BookSerializer(serializers.ModelSerializer):
             "publisher",
             "author",
             "isbn",
+            "user",
         )
         
