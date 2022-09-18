@@ -7,11 +7,13 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = []
+    dependencies = [
+        ("books", "0001_initial"),
+    ]
 
     operations = [
         migrations.CreateModel(
-            name="Book",
+            name="Room",
             fields=[
                 (
                     "id",
@@ -22,11 +24,12 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("title", models.CharField(max_length=250)),
-                ("series", models.CharField(blank=True, max_length=250)),
-                ("publisher", models.CharField(max_length=250)),
-                ("author", models.CharField(max_length=250)),
-                ("isbn", models.CharField(max_length=13)),
+                ("name", models.CharField(max_length=250)),
+                ("subtitle", models.CharField(max_length=300)),
+                (
+                    "books",
+                    models.ManyToManyField(related_name="books", to="books.book"),
+                ),
             ],
         ),
     ]

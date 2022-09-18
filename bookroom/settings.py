@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "rest_framework",
     # Local
     "books.apps.BooksConfig",
+    "rooms.apps.RoomsConfig",
     "accounts.apps.AccountsConfig",
 ]
 
