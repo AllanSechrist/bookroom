@@ -5,9 +5,10 @@ from .serializers import RoomSerializer
 
 
 class RoomListView(generics.ListCreateAPIView):
-    queryset = Room.objects.all()
+    queryset = Room.objects.all()  # user only in future
     serializer_class = RoomSerializer
 
+
 class RoomDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Room.objects.all()
+    queryset = Room.objects.all()  # user only in future
     serializer_class = RoomSerializer
