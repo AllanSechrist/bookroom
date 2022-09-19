@@ -1,17 +1,12 @@
-from rest_framework import generics
+from rest_framework import viewsets
 
 from .models import Room
 from .permissions import IsOwnerOrReadOnly
 from .serializers import RoomSerializer
 
 
-class RoomListView(generics.ListCreateAPIView):
+class RoomViewSet(viewsets.ModelViewSet):
     permission_classes = (IsOwnerOrReadOnly,)
     queryset = Room.objects.all()  # user only in future
     serializer_class = RoomSerializer
 
-
-class RoomDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsOwnerOrReadOnly,)
-    queryset = Room.objects.all()  # user only in future
-    serializer_class = RoomSerializer

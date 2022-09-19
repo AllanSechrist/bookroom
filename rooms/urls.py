@@ -1,8 +1,9 @@
 from django.urls import path
+from rest_framework.routers import SimpleRouter
 
-from .views import RoomListView, RoomDetail
+from .views import RoomViewSet
 
-urlpatterns = [
-    path("<int:pk>/", RoomDetail.as_view(), name="room_detail"),
-    path("", RoomListView.as_view(), name="room_list"),
-]
+router = SimpleRouter()
+router.register("", RoomViewSet, basename="rooms")
+
+urlpatterns = router.urls
