@@ -10,3 +10,6 @@ class RoomViewSet(viewsets.ModelViewSet):
     queryset = Room.objects.all()  # user only in future
     serializer_class = RoomSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+

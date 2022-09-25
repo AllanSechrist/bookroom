@@ -37,6 +37,11 @@ class RoomTests(TestCase):
             subtitle="My top 10 tests!",
             user=cls.user,
         )
+        cls.room_empty = Room.objects.create(
+            name="empty room",
+            subtitle="Test empty",
+            user=cls.user,
+        )
 
         cls.room.books.add(cls.book)
         cls.room.books.add(cls.booktwo)
@@ -47,3 +52,5 @@ class RoomTests(TestCase):
         self.assertEqual(self.room.subtitle, "My top 10 tests!")
         self.assertEqual(self.book.user.username, "testuser")
         self.assertEqual(self.room.books.count(), 2)
+        self.assertEqual(self.room_empty.books.count(), 0)
+        self.assertEqual(self.room.user.room_set.count(), 2)

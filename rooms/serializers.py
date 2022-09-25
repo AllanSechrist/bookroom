@@ -4,6 +4,7 @@ from .models import Room
 
 
 class RoomSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source='user.username')
     class Meta:
         model = Room
         fields = (

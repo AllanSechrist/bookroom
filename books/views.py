@@ -10,3 +10,6 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()  # Change to user only books in future
     serializer_class = BookSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
