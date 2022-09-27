@@ -6,7 +6,7 @@ from books.serializers import BookSerializer
 
 class RoomSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
-    books = BookSerializer(many=True)
+    books = BookSerializer(many=True, read_only=True)
     class Meta:
         model = Room
         fields = (
